@@ -1,0 +1,19 @@
+ # import the necessary modules
+import hashlib
+import os
+
+# specify the name of the video file
+video_file = 'video.mp4'
+
+# open the video file and read its content
+with open(video_file, 'rb') as vf:
+    video_content = vf.read()
+
+# generate a new MD5 hash
+md5_hash = hashlib.md5(video_content).hexdigest()
+
+# generate the new file name
+new_video_name = md5_hash + '.mp4'
+
+# rename the video file
+os.rename(video_file, new_video_name)
